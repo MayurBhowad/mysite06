@@ -121,48 +121,6 @@ export default function MainTable() {
                 </AccordionSummary>
             </Accordion>
             {DisplayList}
-            {/* <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                <AccordionSummary >
-                    <Typography style={{ display: 'flex', flexGrow: 1 }} >Deparment/Role Name</Typography>
-                    <Typography style={{ display: 'flex', flexGrow: 1 }}>Access Level</Typography>
-                    <Typography style={{ display: 'flex', flexGrow: 1 }}>No of members</Typography>
-                    <Typography style={{ display: 'flex', flexGrow: 1 }}>Last Updated</Typography>
-                    <Typography style={{ display: 'flex', flexGrow: 1, justifyContent: "center", color: '#828282' }} ><VisibilityOutlinedIcon /></Typography>
-                </AccordionSummary>
-            </Accordion> */}
-            {/* <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel2')}>
-                <AccordionSummary >
-                    <Typography className={classes.typography} >Deparment/Role Name</Typography>
-                    <Typography className={classes.typography}>Access Level</Typography>
-                    <Typography className={classes.typography}>No of members</Typography>
-                    <Typography className={classes.typography}>Last Updated</Typography>
-                    <Typography style={{ display: 'flex', flexGrow: 1, justifyContent: "center", color: '#828282' }} ><VisibilityOutlinedIcon /></Typography>
-                </AccordionSummary>
-            </Accordion>
-            <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel3')}>
-                <AccordionSummary >
-                    <Typography className={classes.typography} >Deparment/Role Name</Typography>
-                    <Typography className={classes.typography}>Access Level</Typography>
-                    <Typography className={classes.typography}>No of members</Typography>
-                    <Typography className={classes.typography}>Last Updated</Typography>
-                </AccordionSummary>
-            </Accordion>
-            <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel4')}>
-                <AccordionSummary >
-                    <Typography className={classes.typography} >Deparment/Role Name</Typography>
-                    <Typography className={classes.typography}>Access Level</Typography>
-                    <Typography className={classes.typography}>No of members</Typography>
-                    <Typography className={classes.typography}>Last Updated</Typography>
-                </AccordionSummary>
-            </Accordion>
-            <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel5')}>
-                <AccordionSummary >
-                    <Typography className={classes.typography} >Deparment/Role Name</Typography>
-                    <Typography className={classes.typography}>Access Level</Typography>
-                    <Typography className={classes.typography}>No of members</Typography>
-                    <Typography className={classes.typography}>Last Updated</Typography>
-                </AccordionSummary>
-            </Accordion> */}
 
         </div>
     );
