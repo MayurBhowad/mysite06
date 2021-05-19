@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+// import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -20,6 +21,7 @@ import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneO
 import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 import HomeTab from './HomeTab.component';
 import PermissionHome from './permission/PermissionHone.component';
+import ManagementDept from './permission/Departments/Managment.component';
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
     root: {
@@ -210,19 +212,27 @@ function ResponsiveDrawer() {
                     </Drawer>
                 </Hidden>
             </nav>
-            <div className={classes.content}>
-                <div className={classes.toolbar} />
-                {/* <VisibleItemList /> */}
-                <HomeTab />
-                {/* hell */}
-                <PermissionHome />
-            </div>
+            <Router>
+
+                <div className={classes.content}>
+                    <div className={classes.toolbar} />
+                    <HomeTab />
+                    <Route path="/" exact component={PermissionHome} />
+                    <Route path="/1" exact component={ManagementDept} />
+                    <Route path="/2"><Redirect to="/" /></Route>
+                    <Route path="/3"><Redirect to="/" /></Route>
+                    <Route path="/4"><Redirect to="/" /></Route>
+                    <Route path="/5"><Redirect to="/" /></Route>
+                    {/* <PermissionHome /> */}
+                    {/* <ManagementDept /> */}
+                </div>
+            </Router>
         </div >
     );
 }
-ResponsiveDrawer.propTypes = {
-    // Injected by the documentation to work in an iframe.
-    // You won't need it on your project.
-    container: PropTypes.object,
-};
+// ResponsiveDrawer.propTypes = {
+//     // Injected by the documentation to work in an iframe.
+//     // You won't need it on your project.
+//     container: PropTypes.object,
+// };
 export default ResponsiveDrawer;

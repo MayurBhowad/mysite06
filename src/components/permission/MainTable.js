@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import FiberManualRecordOutlinedIcon from '@material-ui/icons/FiberManualRecordOutlined';
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const Accordion = withStyles({
     root: {
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '13px',
         display: 'flex',
         flexGrow: 1,
-        width: '25%'
+        width: '25%',
     },
     accessBtnValid: {
         fontSize: '10px',
@@ -79,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '10px',
         width: '9rem',
         color: '#BDBDBD',
-        border: '1px solid #F2F2F2',
+        border: '1px solid #BDBDBD',
         borderRadius: '30px',
         background: 'rgba(242, 242, 242, 1)'
     },
@@ -171,29 +172,31 @@ export default function MainTable() {
 function DepartmentList({ expanded, handleChange, panelInfo, classes }) {
     const { number, title, access, memberCtn, lastUpdate } = panelInfo;
     return (
-        <Accordion style={{ background: '#fff' }} square expanded={expanded === 'panel1'} onChange={handleChange(`panel${number}`)}>
-            <AccordionSummary >
-                <FiberManualRecordOutlinedIcon style={{ color: '#E0E0E0', padding: '0 5px 4px 0' }} />
-                <Typography className={classes.typography} >{title}</Typography>
-                <Typography className={classes.typography} >
-                    {access === 'access' ?
-                        (<Button className={classes.accessBtnValid} variant="outlined">
-                            All Access
-                        </Button>) :
-                        access === 'restricted' ?
-                            (<Button className={classes.accessBtninValid} variant="outlined">
-                                Restricted Access
+        <Link to={`/${number}`} style={{ textDecoration: 'none' }} >
+            <Accordion style={{ background: '#fff' }} square expanded={expanded === 'panel1'} onChange={handleChange(`panel${number}`)}>
+                <AccordionSummary >
+                    <FiberManualRecordOutlinedIcon style={{ color: '#E0E0E0', padding: '0 5px 4px 0' }} />
+                    <Typography className={classes.typography} >{title}</Typography>
+                    <Typography className={classes.typography} >
+                        {access === 'access' ?
+                            (<Button className={classes.accessBtnValid} variant="outlined">
+                                All Access
                             </Button>) :
-                            access === 'noaccess' ?
-                                (<Button className={classes.accessBtnDisabled} variant="outlined">
-                                    No Access
-                                </Button>) : null
-                    }
-                </Typography>
-                <Typography className={classes.typography} style={{ marginLeft: '5rem' }}>{memberCtn}</Typography>
-                <Typography className={classes.typography} >{`${lastUpdate} min ago`}</Typography>
-                <Typography style={{ display: 'flex', flexGrow: 1, justifyContent: "center", color: '#828282' }} ><VisibilityOutlinedIcon /></Typography>
-            </AccordionSummary>
-        </Accordion>
+                            access === 'restricted' ?
+                                (<Button className={classes.accessBtninValid} variant="outlined">
+                                    Restricted Access
+                                </Button>) :
+                                access === 'noaccess' ?
+                                    (<Button className={classes.accessBtnDisabled} variant="outlined">
+                                        No Access
+                                    </Button>) : null
+                        }
+                    </Typography>
+                    <Typography className={classes.typography} style={{ marginLeft: '5rem' }}>{memberCtn}</Typography>
+                    <Typography className={classes.typography} >{`${lastUpdate} min ago`}</Typography>
+                    <Typography style={{ display: 'flex', flexGrow: 1, justifyContent: "center", color: '#828282' }} ><VisibilityOutlinedIcon /></Typography>
+                </AccordionSummary>
+            </Accordion>
+        </Link>
     )
 }
