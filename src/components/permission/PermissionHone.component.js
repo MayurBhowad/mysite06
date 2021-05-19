@@ -35,7 +35,10 @@ const useStyles = makeStyles((theme) => ({
     },
     topActionsIcon: {
         margin: '0 7px',
-        color: '#828282'
+        color: '#828282',
+        "&:hover": {
+            cursor: 'pointer',
+        },
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),

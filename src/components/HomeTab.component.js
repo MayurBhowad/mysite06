@@ -61,6 +61,9 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '33px',
         display: 'flex',
         fontSize: '14px',
+        "&:hover": {
+            cursor: 'pointer',
+        },
     },
 }));
 

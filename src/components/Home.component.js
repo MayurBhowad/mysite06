@@ -40,7 +40,10 @@ const useStyles = makeStyles(theme => ({
     navLogo: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        "&:hover": {
+            cursor: 'pointer'
+        }
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -62,9 +65,15 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         alignItems: 'center',
         marginRight: '1rem',
+        "&:hover": {
+            cursor: 'pointer',
+        },
     },
     navRightItem: {
         margin: '0 7px',
+        "&:hover": {
+            cursor: 'pointer',
+        }
     },
     profileName: {
         marginLeft: '7px',
@@ -100,11 +109,6 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 function ResponsiveDrawer() {
-    const dummyCategories = [
-        { title: 'Projects', icon: 'DashboardOutlinedIcon' },
-        { title: 'Organisation Profile', icon: 'BusinessCenterOutlinedIcon' },
-        { title: 'Access Control', icon: 'SecurityOutlinedIcon' },
-    ]
     const classes = useStyles();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -115,7 +119,6 @@ function ResponsiveDrawer() {
     const drawer = (
         <div >
             <List className={classes.list}>
-                {/* {dummyCategories.map((text, index) => ( */}
 
                 <ListItem
                     className={selected === 1 ? classes.listItemSelected : classes.listItem}
@@ -138,7 +141,6 @@ function ResponsiveDrawer() {
                     <SecurityOutlinedIcon />
                     <ListItemText className={classes.listItemText} primary='Access Control' />
                 </ListItem>
-                {/* ))} */}
             </List>
         </div>
     );
