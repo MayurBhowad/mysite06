@@ -13,10 +13,13 @@ import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-// import VisibleItemList from '../containers/VisibleItemList'
 import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import BusinessCenterOutlinedIcon from '@material-ui/icons/BusinessCenterOutlined';
 import SecurityOutlinedIcon from '@material-ui/icons/SecurityOutlined';
+import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
+import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
+import HomeTab from './HomeTab.component';
+import PermissionHome from './permission/PermissionHone.component';
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
     root: {
@@ -30,7 +33,7 @@ const useStyles = makeStyles(theme => ({
     },
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
-        background: '#E5E5E5'
+        background: '#FFFFFF'
     },
     navLogo: {
         display: 'flex',
@@ -47,26 +50,39 @@ const useStyles = makeStyles(theme => ({
     company: {
         marginLeft: '10px'
     },
+    navRight: {
+        marginLeft: 'auto',
+        color: '#828282',
+        display: 'flex',
+        alignItems: 'center',
+    },
+    profile: {
+        display: 'flex',
+        alignItems: 'center',
+        marginRight: '1rem',
+    },
+    navRightItem: {
+        margin: '0 7px',
+    },
+    profileName: {
+        marginLeft: '7px',
+        fontSize: '15px',
+        color: '#000'
+    },
     drawerPaper: {
         width: drawerWidth,
         background: '#FCFBFF'
     },
     content: {
+        marginTop: '-20px',
         flexGrow: 1,
-        padding: theme.spacing(3),
+        // padding: theme.spacing(3),
     },
     list: {
         marginLeft: '10px',
         color: '#828282'
     },
     listItem: {
-        "&$selected": {
-            backgroundColor: "red",
-            color: "white",
-            "& .MuiListItemIcon-root": {
-                color: "white"
-            }
-        },
     },
     listItemText: {
         marginLeft: '10px',
@@ -127,7 +143,7 @@ function ResponsiveDrawer() {
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <AppBar position="fixed" className={classes.appBar}>
+            <AppBar position="fixed" elevation={0} className={classes.appBar}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -141,6 +157,21 @@ function ResponsiveDrawer() {
                     <div className={classes.navLogo}>
                         <img src="assets/Images/Subtract.png" alt="logo" width="25px" className={classes.logo} />
                         <img src="assets/Images/mYSITE.png" alt="logo" width="70px" className={classes.company} />
+                    </div>
+                    <div className={classes.navRight}>
+                        <div className={classes.profile}>
+                            <img
+                                src="https://lh3.googleusercontent.com/proxy/e1qqECK7uQAy-rjbekL84rd57H9wJCq6Ym2Pp9abOF0ue-iM_qfuQKF9F79CMWmBu6FWSC0DT5qagCKRnjIWCl9UBPmcw59D4yPJyclj8EwyQJ_2byHr29_eLr0A9l0"
+                                alt=""
+                                width="32px"
+                                height="30px"
+                            />
+                            <Typography variant="h6" className={classes.profileName}>
+                                Kishore
+                            </Typography>
+                        </div>
+                        <NotificationsNoneOutlinedIcon fontSize="large" className={classes.navRightItem} />
+                        <HelpOutlineOutlinedIcon fontSize="large" className={classes.navRightItem} />
                     </div>
                 </Toolbar>
             </AppBar>
@@ -182,6 +213,9 @@ function ResponsiveDrawer() {
             <div className={classes.content}>
                 <div className={classes.toolbar} />
                 {/* <VisibleItemList /> */}
+                <HomeTab />
+                {/* hell */}
+                <PermissionHome />
             </div>
         </div >
     );
