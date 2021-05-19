@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import RssFeedIcon from '@material-ui/icons/RssFeed';
 import ViewModuleOutlinedIcon from '@material-ui/icons/ViewModuleOutlined';
 import SyncOutlinedIcon from '@material-ui/icons/SyncOutlined';
+import { Visibility } from '@material-ui/icons';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,6 +42,12 @@ const useStyles = makeStyles((theme) => ({
     },
     tabItem: {
         display: 'flex',
+        marginBottom: '5px',
+        color: '#828282',
+        "&:hover": {
+            cursor: 'pointer',
+            color: '#673AB7',
+        }
     },
     tabBB: {
         margin: '0 5px',
@@ -61,27 +68,57 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar() {
     const classes = useStyles();
+    const [selected, setSelected] = React.useState(1)
+    const [hover, setHover] = React.useState(false)
+    const [id, setId] = React.useState(1)
+
+    const handleHover = (e, b, n) => {
+        e.preventDefault();
+        setHover(b);
+        setId(n);
+    }
+    const selecteTab = (e, n) => {
+        e.preventDefault();
+        setSelected(n);
+    }
 
     return (
         <div className={classes.root}>
             <AppBar elevation={0} className={classes.appBar} position="static">
                 <Toolbar className={classes.toolbar} >
                     <Typography className={classes.title}>
-                        <div className={classes.tab}>
-                            <div className={classes.tabItem}>
+                        <div
+                            className={classes.tab}
+                            onMouseEnter={e => handleHover(e, true, 1)}
+                            onMouseLeave={e => handleHover(e, false, 1)}
+                            onClick={e => selecteTab(e, 1)}
+                        >
+                            <div className={classes.tabItem} style={selected === 1 ? { color: '#673AB7' } : null}>
                                 <RssFeedIcon />
                             Permissions
                             </div>
-                            <div className={classes.tabBB}></div>
+                            <div className={classes.tabBB}
+                                style={
+                                    ((hover && id === 1) || selected === 1) ? { visibility: 'visible' } : { visibility: 'hidden' }
+                                }
+                            ></div>
                         </div>
                         <div style={{
                             borderLeft: '1px solid lightgrey'
-                        }} className={classes.tab}>
-                            < div className={classes.tabItem} >
+                        }} className={classes.tab}
+                            onMouseEnter={e => handleHover(e, true, 2)}
+                            onMouseLeave={e => handleHover(e, false, 2)}
+                            onClick={e => selecteTab(e, 2)}
+                        >
+                            < div className={classes.tabItem} style={selected === 2 ? { color: '#673AB7' } : null} >
                                 <ViewModuleOutlinedIcon />
                                 Approval Matrix
                             </div>
-                            <div className={classes.tabBB}></div>
+                            <div className={classes.tabBB}
+                                style={
+                                    ((hover && id === 2) || selected === 2) ? { visibility: 'visible' } : { visibility: 'hidden' }
+                                }
+                            ></div>
                         </div>
                     </Typography>
                     <Typography className={classes.lastCheck}>
