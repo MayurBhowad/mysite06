@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
-// import PropTypes from 'prop-types';
+// import useStyles from '../styles/Home.style';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -13,16 +13,18 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
 import DashboardOutlinedIcon from '@material-ui/icons/DashboardOutlined';
 import BusinessCenterOutlinedIcon from '@material-ui/icons/BusinessCenterOutlined';
 import SecurityOutlinedIcon from '@material-ui/icons/SecurityOutlined';
 import NotificationsNoneOutlinedIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import HelpOutlineOutlinedIcon from '@material-ui/icons/HelpOutlineOutlined';
 import HomeTab from './HomeTab.component';
-import PermissionHome from './permission/PermissionHone.component';
+import PermissionHome from './permission/PermissionHome.component';
 import ManagementDept from './permission/Departments/Managment.component';
+import { makeStyles } from "@material-ui/core";
 const drawerWidth = 240;
+
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
@@ -108,6 +110,7 @@ const useStyles = makeStyles(theme => ({
         marginLeft: 0,
     },
 }));
+
 function ResponsiveDrawer() {
     const classes = useStyles();
     const theme = useTheme();
@@ -119,7 +122,6 @@ function ResponsiveDrawer() {
     const drawer = (
         <div >
             <List className={classes.list}>
-
                 <ListItem
                     className={selected === 1 ? classes.listItemSelected : classes.listItem}
                     onClick={e => setSelected(1)}
@@ -165,7 +167,7 @@ function ResponsiveDrawer() {
                     <div className={classes.navRight}>
                         <div className={classes.profile}>
                             <img
-                                src="https://lh3.googleusercontent.com/proxy/e1qqECK7uQAy-rjbekL84rd57H9wJCq6Ym2Pp9abOF0ue-iM_qfuQKF9F79CMWmBu6FWSC0DT5qagCKRnjIWCl9UBPmcw59D4yPJyclj8EwyQJ_2byHr29_eLr0A9l0"
+                                src="https://pngimage.net/wp-content/uploads/2018/06/grey-circle-png-1.png"
                                 alt=""
                                 width="32px"
                                 height="30px"
@@ -232,9 +234,5 @@ function ResponsiveDrawer() {
         </div >
     );
 }
-// ResponsiveDrawer.propTypes = {
-//     // Injected by the documentation to work in an iframe.
-//     // You won't need it on your project.
-//     container: PropTypes.object,
-// };
+
 export default ResponsiveDrawer;

@@ -1,10 +1,10 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
+import useStyles from '../../../styles/permission/department/ManagmentTable.style';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
-import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
 import RemoveCircleOutlineOutlinedIcon from '@material-ui/icons/RemoveCircleOutlineOutlined';
 import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Radio, RadioGroup } from '@material-ui/core';
@@ -50,87 +50,6 @@ const AccordionDetails = withStyles((theme) => ({
     },
 }))(MuiAccordionDetails);
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        margin: '1rem 5rem'
-    },
-    typography: {
-        fontSize: '13px',
-        display: 'flex',
-        flexGrow: 1,
-        width: '25%',
-        textDecoration: 'none'
-    },
-    accessBtnValid: {
-        fontSize: '10px',
-        width: '9rem',
-        color: '#27AE60',
-        background: 'rgba(39, 174, 96, 0.3)',
-        border: '1px solid #27AE60',
-        borderRadius: '30px',
-    },
-    accessBtninValid: {
-        fontSize: '10px',
-        width: '9rem',
-        color: '#FF0808',
-        border: '1px solid #FF0808',
-        borderRadius: '30px',
-        background: 'rgba(255, 8, 8, 0.3)'
-    },
-    accessBtnDisabled: {
-        fontSize: '10px',
-        width: '9rem',
-        color: '#BDBDBD',
-        border: '1px solid #BDBDBD',
-        borderRadius: '30px',
-        background: 'rgba(242, 242, 242, 1)'
-    },
-    budgetRoot: {
-        width: '100%',
-    },
-    details: {
-        alignItems: 'center',
-    },
-    column: {
-        flexBasis: '33.33%',
-    },
-    radioRoot: {
-        marginLeft: '4rem'
-    },
-    accessControlSection: {
-        height: '100%',
-        display: 'flex',
-        marginTop: '-3rem',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-    accessControlTitle: {
-        color: '#000',
-        fontSize: '14px',
-        marginBottom: '20px',
-        marginLeft: '20px'
-    },
-    radioTitle: {
-        color: '#000',
-        fontSize: '15px'
-    },
-    radioSubtitle: {
-        color: '#BDBDBD',
-        fontSize: '14px'
-    },
-    helper: {
-        borderLeft: `2px solid ${theme.palette.divider}`,
-        padding: theme.spacing(1, 2),
-    },
-    permissionRoot: {
-
-    },
-    formControlLable: {
-        transform: "scale(.8)",
-    }
-}))
-
 export default function ManagmentTable() {
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState('panel1');
@@ -167,56 +86,6 @@ export default function ManagmentTable() {
                 </AccordionSummary>
             </Accordion>
             {DisplayList}
-            {/* <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
-                <AccordionSummary >
-                    <Typography style={{ display: 'flex', flexGrow: 1 }} >Deparment/Role Name</Typography>
-                    <Typography style={{ display: 'flex', flexGrow: 1 }}>Access Level</Typography>
-                    <Typography style={{ display: 'flex', flexGrow: 1 }}>No of members</Typography>
-                    <Typography style={{ display: 'flex', flexGrow: 1 }}>Last Updated</Typography>
-                    <Typography style={{ display: 'flex', flexGrow: 1, justifyContent: "center", color: '#828282' }} ><VisibilityOutlinedIcon /></Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-                </AccordionDetails>
-            </Accordion> */}
-            {/* <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel2')}>
-                <AccordionSummary >
-                    <Typography className={classes.typography} >Deparment/Role Name</Typography>
-                    <Typography className={classes.typography}>Access Level</Typography>
-                    <Typography className={classes.typography}>No of members</Typography>
-                    <Typography className={classes.typography}>Last Updated</Typography>
-                    <Typography style={{ display: 'flex', flexGrow: 1, justifyContent: "center", color: '#828282' }} ><VisibilityOutlinedIcon /></Typography>
-                </AccordionSummary>
-            </Accordion>
-            <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel3')}>
-                <AccordionSummary >
-                    <Typography className={classes.typography} >Deparment/Role Name</Typography>
-                    <Typography className={classes.typography}>Access Level</Typography>
-                    <Typography className={classes.typography}>No of members</Typography>
-                    <Typography className={classes.typography}>Last Updated</Typography>
-                </AccordionSummary>
-            </Accordion>
-            <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel4')}>
-                <AccordionSummary >
-                    <Typography className={classes.typography} >Deparment/Role Name</Typography>
-                    <Typography className={classes.typography}>Access Level</Typography>
-                    <Typography className={classes.typography}>No of members</Typography>
-                    <Typography className={classes.typography}>Last Updated</Typography>
-                </AccordionSummary>
-            </Accordion>
-            <Accordion square expanded={expanded === 'panel1'} onChange={handleChange('panel5')}>
-                <AccordionSummary >
-                    <Typography className={classes.typography} >Deparment/Role Name</Typography>
-                    <Typography className={classes.typography}>Access Level</Typography>
-                    <Typography className={classes.typography}>No of members</Typography>
-                    <Typography className={classes.typography}>Last Updated</Typography>
-                </AccordionSummary>
-            </Accordion> */}
-
         </div>
     );
 }
